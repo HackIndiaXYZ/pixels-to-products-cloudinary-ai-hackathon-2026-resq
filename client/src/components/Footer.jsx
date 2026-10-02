@@ -4,10 +4,10 @@ import { assets } from '../assets/assets'
 
 const Footer = () => {
   return (
-    <footer className='w-full bg-canvas-parchment py-16 border-t border-hairline select-none'>
+    <footer className='w-full bg-[#f4f4f6] py-16 border-t border-neutral-200/60 select-none'>
       <div className='max-w-[1024px] mx-auto px-4 sm:px-6'>
         {/* Footnote / Disclaimer section */}
-        <div className='pb-8 mb-8 border-b border-hairline font-micro-legal text-ink-muted48 space-y-2'>
+        <div className='pb-8 mb-8 border-b border-neutral-200/60 text-xs text-neutral-500 space-y-2'>
           <p>
             1. Generation speed depends on network latency and cluster concurrency. High-resolution exports available on all plans.
           </p>
@@ -74,7 +74,7 @@ const Footer = () => {
 
           {/* Col 3 */}
           <div>
-            <h4 className='font-caption-strong text-ink mb-3'>Imagify Studio</h4>
+            <h4 className='font-caption-strong text-ink mb-3'>ImaGod Studio</h4>
             <ul className='space-y-1 text-[13px]'>
               <li>
                                 <Link to='/' className='text-[#6e6e73] hover:text-primary transition-colors'>
@@ -128,13 +128,13 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar: Copyright + Social Links */}
-        <div className='pt-6 border-t border-hairline flex flex-col sm:flex-row items-center justify-between gap-4'>
+        <div className='pt-6 border-t border-neutral-200/60 flex flex-col sm:flex-row items-center justify-between gap-4'>
           <div className='flex items-center gap-3'>
             <span className='font-display text-ink font-semibold text-[14px]'>
-              Imagify
+              ImaGod
             </span>
             <span className='font-fine-print text-ink-muted48'>
-              Copyright © 2026 Imagify Inc. All rights reserved.
+              Copyright © 2026 ImaGod Inc. All rights reserved.
             </span>
           </div>
 
