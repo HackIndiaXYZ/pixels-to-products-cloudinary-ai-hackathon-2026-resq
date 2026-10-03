@@ -4,23 +4,100 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-canvas: #fafafc;
+  --color-surface: #ffffff;
+  --color-surface-subdued: #f5f5f7;
+  --color-ink: #0f0f11;
+  --color-ink-muted: #6e6e73;
+  --color-ink-subtle: #9ca3af;
+  --color-line: #e5e5e7;
+  --color-primary: #0066cc;
+  --color-primary-hover: #0071e3;
+  --color-primary-soft: #eff6ff;
+
+  --radius-full: 9999px;
+  --radius-card: 24px;
+  --radius-card-inner: 18px;
+  --radius-input: 14px;
+
+  --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.03);
+  --shadow-card-hover: 0 12px 36px rgba(0, 0, 0, 0.07);
+
+  /* Liquid Glass Design Tokens - Reduced Opacity, Ultra Clear */
+  --glass: oklch(0.99 0.005 250 / 0.04);
+  --glass-tint: oklch(0.99 0.005 250 / 0.05);
+  --glass-edge: oklch(1 0 0 / 0.32);
+
+  --glass-shine: linear-gradient(
+    118deg,
+    oklch(1 0 0 / 0.25) 0%,
+    oklch(1 0 0 / 0.06) 24%,
+    transparent 48%,
+    oklch(1 0 0 / 0.03) 72%,
+    oklch(1 0 0 / 0.15) 100%
+  );
+
+  --glass-shadow:
+    0 1px 0 oklch(1 0 0 / 0.3),
+    0 8px 25px oklch(0.2 0.02 250 / 0.05);
+
+  --glass-inner-shadow:
+    inset 1px 1px 1px oklch(1 0 0 / 0.45),
+    inset -1px -1px 1px oklch(0.2 0.02 250 / 0.04);
+}
+
+.dark {
+  --glass: oklch(0.22 0.02 250 / 0.10);
+  --glass-tint: oklch(0.3 0.02 250 / 0.06);
+  --glass-edge: oklch(1 0 0 / 0.12);
+
+  --glass-shadow:
+    0 1px 0 oklch(1 0 0 / 0.10),
+    0 10px 30px oklch(0 0 0 / 0.18);
+
+  --glass-inner-shadow:
+    inset 1px 1px 1px oklch(1 0 0 / 0.15),
+    inset -1px -1px 1px oklch(0 0 0 / 0.10);
+}
+
+/* Explicit fallback utilities for liquid glass */
+.border-glass-edge {
+  border-color: var(--glass-edge);
+}
+.bg-glass {
+  background-color: var(--glass);
+}
+.bg-glass-tint {
+  background-color: var(--glass-tint);
+}
+.bg-glass-shine {
+  background-image: var(--glass-shine);
+}
+.shadow-glass {
+  box-shadow: var(--glass-shadow);
+}
+.shadow-glass-inner {
+  box-shadow: var(--glass-inner-shadow);
+}
+
 html, body, #root {
-  background-color: #fafafc;
+  background-color: var(--color-canvas);
   min-height: 100%;
   margin: 0;
   padding: 0;
-  color: #0f0f11;
+  color: var(--color-ink);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Primary Font (Poppins) — Default base, brand, headlines, display, buttons */
+/* Primary Font (Poppins) — Headlines, display, action buttons, branding */
 * {
   font-family: 'Poppins', sans-serif;
 }
 
-h1, h2, h3, .font-primary, .font-display, .font-poppins {
+h1, h2, h3, h4, h5, h6, .font-primary, .font-display, .font-poppins {
   font-family: 'Poppins', sans-serif;
   letter-spacing: -0.02em;
 }
@@ -30,7 +107,7 @@ button, input, textarea, select {
 }
 
 /* Secondary Font (Plus Jakarta Sans) — Refined body copy, descriptions, subtitles, tags */
-p, .font-secondary, .font-sans, .font-body {
+p, .font-secondary, .font-sans, .font-body, span.font-sans, label.font-sans {
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
@@ -38,9 +115,20 @@ p, .font-secondary, .font-sans, .font-body {
   border-radius: 9999px !important;
 }
 
-.placeholder-color {
-  color: #e0e0e0;
-  font-weight: 300;
+/* Standardized focus visible outline for accessibility across all interactive controls */
+:focus-visible {
+  outline: 2px solid rgba(0, 102, 204, 0.45);
+  outline-offset: 2px;
+}
+
+/* Respect user reduced-motion preference globally */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 
