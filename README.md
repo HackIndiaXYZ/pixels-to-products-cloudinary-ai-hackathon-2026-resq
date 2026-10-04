@@ -356,8 +356,8 @@ ImaGod-V2/
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/PranjalGupta-05/ImaGod-V2.git
-cd ImaGod-V2
+git clone https://github.com/PranjalGupta-05/ImaGod.git
+cd ImaGod
 ```
 
 ### 2. Install Dependencies
